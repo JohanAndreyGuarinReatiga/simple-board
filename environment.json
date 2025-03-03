@@ -1,0 +1,12 @@
+[ 
+    {
+        "USER": "admin@example.com",
+        "PWD": "123",
+        "ROL" : "admin"
+    },
+    {
+        "USER": "dszsda@gmail.com",
+        "PWD": "123456",
+        "ROL" : "user"
+    }
+]
