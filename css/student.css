@@ -1,0 +1,63 @@
+@import url(variables.css);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.div__container {
+    width: 90%;
+    margin: auto;
+}
+.div__header{
+    background-color: #f9f9f9;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.div__header h2 {
+    font-size: 24px;
+}
+.button__add {
+    background-color: #ededed;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.button__add:hover {
+    background-color: #747474;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color:#000;
+}
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.td__actions {
+    display: flex;
+    gap: 10px;
+}
+.span__edit, .span__delete {
+    cursor: pointer;
+}
+.span__edit {
+    color: #f4a261;
+}
+.span__delete {
+    color: #e63946;
+}
