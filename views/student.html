@@ -5,14 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Students</title>
     <link rel="stylesheet" href="../css/student.css">
+    <script type="module" defer src="../js/student.js"></script>
 </head>
 <body>
     <main>
         <div class="div__container">
             <div class="div__header">
                 <h2>Students List</h2>
-                <button class="button__add">ADD NEW STUDENT</button>
+                <button id="add__student" class="button__add">ADD NEW STUDENT</button>
             </div>
+            <dialog id="dialog__add_student">
+                <div class="dialog__header">
+                    <span id="dialog__close">x</span>
+                </div>
+                <div class="dialog__main">
+                    <form id="form__student" action="?" method="post">
+                        <div>
+                            <label>Name</label>
+                            <input type="text" value="Miguel Angel" pattern="[A-Za-zÑñÁáÉéÍíÓóÚúÜü ]+" name="name">
+                        </div>
+                        <div>
+                            <label>Email</label>
+                            <input type="email" value="ma@gmail.com" name="email">
+                        </div>
+                        <div>
+                            <label>Phone</label>
+                            <input type="text" value="123456789" pattern="[0-9]+" max="10" name="phone">
+                        </div>
+                        <div>
+                            <label>Enroll Number</label>
+                            <input type="number" value="34567890" name="enroll_number">
+                        </div>
+                    </form>
+                </div>
+                <div class="dialog__footer">
+                    <input type="submit" form="form__student" value="Guardar">
+                </div>
+            </dialog>
             <table>
                 <thead>
                     <tr>
@@ -25,22 +54,11 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td><img src="#" alt="student"></td>
-                        <td>Karthi</td>
-                        <td>karthi@gmmail.com</td>
-                        <td>7305477760</td>
-                        <td>1234567305477760</td>
-                        <td>08-Dec, 2021</td>
-                        <td class="td__actions">
-                            <span class="span__edit">✏️</span>
-                            <span class="span__delete">🗑️</span>
-                        </td>
-                    </tr>
+                <tbody id="table__student">
+                    
                 </tbody>
             </table>
         </div>
     </main>
 </body>
-</html>=
+</html>

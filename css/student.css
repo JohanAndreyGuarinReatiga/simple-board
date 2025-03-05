@@ -27,6 +27,18 @@
 .button__add:hover {
     background-color: #747474;
 }
+#dialog__add_student{
+    margin: auto;
+}
+.dialog__header{
+    display: flex;
+    justify-content: flex-end;
+}
+.dialog__header > span{
+    cursor: pointer;
+    padding: 5px;
+    border: 1px solid #000;
+}
 table {
     width: 100%;
     border-collapse: collapse;
