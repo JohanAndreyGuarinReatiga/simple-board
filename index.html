@@ -8,6 +8,15 @@
     <script src="js/main.js" defer type="module"></script>
 </head>
 <body>
+    <dialog id="dialog__login">
+        <div class="dialog__header">
+            <span id="dialog__login_close">X</span>
+        </div>
+        <div id="dialog__message" class="dialog__main">
+            
+        </div>
+        <div class="dialog__footer"></div>
+    </dialog>
     <form id="form__login" action="?" method="get">
         <div class="div__title">
             <h1>CRUD OPERATIONS</h1>
@@ -17,11 +26,11 @@
         <div class="div__input">
             <div>
                 <label>Email</label>
-                <input type="email" name="email" requierd placeholder="Enter your email">
+                <input type="email" name="email" required placeholder="Enter your email" >
             </div>
             <div>
                 <label>Password</label>
-                <input type="password" name="password" requierd placeholder="Enter your password">
+                <input type="password" name="password" required placeholder="Enter your password" >
             </div>
         </div>
         <div class="div__button">
