@@ -1,14 +1,27 @@
+import {enableFromStudent} from "./handler.js";
+
 export const loadStudent = ()=>{
     const DB = (localStorage.getItem("students")) ? JSON.parse(localStorage.getItem("students")) : [];
     return DB;
 }
-
 export const save = (data)=>{
     const DB = loadStudent();
     DB.push(data);
     showRowsTable([data]);
     localStorage.setItem("students", JSON.stringify(DB));
     return {status: 201, message: `El estudiante ${data.name} fue registrado exitosamente.`}
+}
+export const edit = (data)=>{
+    const DB = loadStudent(); // [{name: "Miguel"},{name "Juan"}]
+    const {id} = data;  // {id: 1, name:"JUAN"} - const id = 1
+    delete data.id; // {name:"JUAN"}
+    DB[id] = data; // {name "Juan"} = {name:"JUAN"}
+    localStorage.setItem("students", JSON.stringify(DB));
+    const row = table__student.querySelectorAll("tr")[id];
+    row.children[1].textContent = data.name;
+    row.children[2].textContent = data.email;
+    row.children[3].textContent = data.phone;
+    row.children[4].textContent = data.enroll_number;
 }
 
 export const transformInputFormulary =  (e)=>{
@@ -18,7 +31,6 @@ export const transformInputFormulary =  (e)=>{
     data.date_of_admission = new Date().toISOString();
     return data;
 }
-
 export const showRowsTable = (DB)=>{
     for (let i = 0; i < DB.length; i++) {
         const tr = document.createElement("tr")
@@ -37,13 +49,22 @@ export const showRowsTable = (DB)=>{
         tdEnrollNumber.textContent = DB[i].enroll_number;
         const tdDate_of_admission = document.createElement("td");
         tdDate_of_admission.textContent = DB[i].date_of_admission;
-        tr.append(tdImage, tdName, tdEmail, tdPhone, tdEnrollNumber, tdDate_of_admission);
+        const tdActions = document.createElement("td");
+        const spanEdit = document.createElement("span");
+        spanEdit.classList.add("span__edit");
+        spanEdit.textContent = "✏️";
+        spanEdit.dataset.id_student = i;
+        spanEdit.addEventListener("click", enableFromStudent)
+
+        const spanDelete = document.createElement("span");
+        spanDelete.classList.add("span__delete");
+        spanDelete.textContent = "🗑️";
+
+        tdActions.append(spanEdit, spanDelete);
+        tr.append(tdImage, tdName, tdEmail, tdPhone, tdEnrollNumber, tdDate_of_admission, tdActions);
         table__student.append(tr);
     }
 
-    // let plantilla = "";
-    // for (let i = 0; i < DB.length; i++) {
-    //     plantilla += `
     //         <tr>
     //             <td><img src="#" alt="student"></td>
     //             <td>Karthi</td>
@@ -56,7 +77,5 @@ export const showRowsTable = (DB)=>{
     //                 <span class="span__delete">🗑️</span>
     //             </td>
     //         </tr>
-    //     `;
-    // }
-    // console.log(plantilla);
+
 }

@@ -27,7 +27,8 @@
 .button__add:hover {
     background-color: #747474;
 }
-#dialog__add_student{
+#dialog__add_student,
+#dialog__student_edit{
     margin: auto;
 }
 .dialog__header{
