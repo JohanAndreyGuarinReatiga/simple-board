@@ -78,6 +78,22 @@
                     <input type="submit" form="form__student_edit" value="Actualizar">
                 </div>
             </dialog>
+            <dialog id="dialog__student_delete">
+                <div class="dialog__header">
+                    
+                </div>
+                <div class="dialog__main">
+                    <form id="form__student_delete" action="?" method="post">
+                        <h2>Deseas eliminar la informacion del estidiante</h2>
+                        <input type="text" pattern="[0-9]+" name="id" hidden>
+                        <strong>xxxxxxx</strong>
+                    </form>
+                </div>
+                <div class="dialog__footer">
+                    <input type="submit" data-action="delete" form="form__student_delete" value="yes">
+                    <input type="submit" data-action="close" form="form__student_delete" value="no">
+                </div>
+            </dialog>
             <table>
                 <thead>
                     <tr>

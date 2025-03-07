@@ -1,4 +1,4 @@
-import {enableFromStudent} from "./handler.js";
+import {enableFromStudentToEdit, enableFromStudentToDelete} from "./handler.js";
 
 export const loadStudent = ()=>{
     const DB = (localStorage.getItem("students")) ? JSON.parse(localStorage.getItem("students")) : [];
@@ -54,11 +54,14 @@ export const showRowsTable = (DB)=>{
         spanEdit.classList.add("span__edit");
         spanEdit.textContent = "✏️";
         spanEdit.dataset.id_student = i;
-        spanEdit.addEventListener("click", enableFromStudent)
+        spanEdit.addEventListener("click", enableFromStudentToEdit)
 
         const spanDelete = document.createElement("span");
         spanDelete.classList.add("span__delete");
         spanDelete.textContent = "🗑️";
+        spanDelete.dataset.id_student = i;
+        spanDelete.dataset.name_student = DB[i].name;
+        spanDelete.addEventListener("click", enableFromStudentToDelete)
 
         tdActions.append(spanEdit, spanDelete);
         tr.append(tdImage, tdName, tdEmail, tdPhone, tdEnrollNumber, tdDate_of_admission, tdActions);

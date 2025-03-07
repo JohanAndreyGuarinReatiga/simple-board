@@ -28,7 +28,8 @@
     background-color: #747474;
 }
 #dialog__add_student,
-#dialog__student_edit{
+#dialog__student_edit,
+#dialog__student_delete{
     margin: auto;
 }
 .dialog__header{
